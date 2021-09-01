@@ -23,9 +23,9 @@ public class PerfController {
     private static final Logger LOGGER = LoggerFactory.getLogger(PerfController.class);
 
     @GetMapping(value = "/sleep")
-    public Response<?> sleepSomeSeconds(@RequestParam @NotNull(message = "seconds为空") Long seconds) throws InterruptedException {
-        LOGGER.info("sleep {} seconds.", seconds);
-        Thread.sleep(seconds * 1000);
+    public Response<?> sleepSomeSeconds(@RequestParam @NotNull(message = "seconds为空") Float seconds) throws InterruptedException {
+        LOGGER.info("will sleep {} seconds.", seconds);
+        Thread.sleep((long) (seconds * 1000));
         return Response.success();
     }
 }
